@@ -23,10 +23,14 @@ public class CrudSpringApplication {
 			courseRepository.deleteAll(); // deletar a base de dados assim que inicializar o projeto e ter novos dados
 
 			Course c = new Course();
-			c.setName("Angular com Spring");
+			c.setName("Angular");
 			c.setCategory("front-end");
-
 			courseRepository.save(c); // Salvar nova entidade
+
+			Course c1 = new Course();
+			c1.setName("Spring");
+			c1.setCategory("back-end");
+			courseRepository.save(c1);
 		};
 	}
 }
