@@ -6,7 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.arthur.model.Course;
 
-@Repository
+@Repository // Long identificador, implica em diferentes tipos de dados sendo usados como
+            // chave primária em suas respectivas entidades no banco de dados.
 public interface CourseRepository extends JpaRepository<Course, Long> { // consegue extender as interfaces do spring
                                                                         // data
 
