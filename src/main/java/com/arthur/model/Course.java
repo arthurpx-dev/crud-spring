@@ -36,7 +36,7 @@ public class Course { // Vai criar a tabela com esse nome
 
     @NotBlank // Caractere sem ser espaço
     @NotNull // Validação , não deixa ser null e nem vazio
-    @Length(min = 5, max = 100)
+    @Length(min = 3, max = 100)
     // @Column(name = "nome") // fazer associação se tiver nomes diferentes nas
     // colunas, Colocar informações ,
     // gera maior quantidade possível no banco de dados , e
@@ -46,7 +46,7 @@ public class Course { // Vai criar a tabela com esse nome
 
     @NotNull
     @Length(max = 10)
-    @Pattern(regexp = "Back-end|Front-end")
+    @Pattern(regexp = "Back-end|Front-end|back-end|front-end")
     @Column(length = 10, nullable = false) // não usar muito espaço , e especificar
     private String category;
 }
