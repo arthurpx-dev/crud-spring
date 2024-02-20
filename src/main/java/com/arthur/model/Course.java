@@ -48,7 +48,7 @@ public class Course { // Vai criar a tabela com esse nome
 
     @NotNull
     @Length(max = 10)
-    @Pattern(regexp = "Back-end|Front-end")
+    @Pattern(regexp = "Back-end|Front-end|back-end|front-end")
     @Column(length = 10, nullable = false) // não usar muito espaço , e especificar
     private String category;
 
