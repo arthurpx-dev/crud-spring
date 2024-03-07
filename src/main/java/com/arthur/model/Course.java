@@ -1,5 +1,10 @@
 package com.arthur.model;
 
+import com.arthur.enums.Category;
+import com.arthur.enums.Status;
+import com.arthur.enums.converters.CategoryConverter;
+import com.arthur.enums.converters.StatusConverter;
+
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
@@ -8,6 +13,7 @@ import org.hibernate.validator.constraints.Length;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +21,6 @@ import jakarta.persistence.Id;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 // @Getter
@@ -47,14 +52,13 @@ public class Course { // Vai criar a tabela com esse nome
     private String name;
 
     @NotNull
-    @Length(max = 10)
-    @Pattern(regexp = "Back-end|Front-end|back-end|front-end")
+
     @Column(length = 10, nullable = false) // não usar muito espaço , e especificar
-    private String category;
+    @Convert(converter = CategoryConverter.class)
+    private Category category;
 
     @NotNull
-    @Length(max = 10)
-    @Pattern(regexp = "Ativo|Inativo")
     @Column(length = 10, nullable = false)
-    private String status = "Ativo";
+    @Convert(converter = StatusConverter.class)
+    private Status status = Status.ATIVO;
 }

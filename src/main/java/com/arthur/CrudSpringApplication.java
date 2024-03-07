@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.arthur.enums.Category;
 import com.arthur.model.Course;
 import com.arthur.repository.CourseRepository;
 
@@ -24,12 +25,12 @@ public class CrudSpringApplication {
 
 			Course c = new Course();
 			c.setName("Angular");
-			c.setCategory("Front-end");
+			c.setCategory(Category.FRONT_END);
 			courseRepository.save(c); // Salvar nova entidade
 
 			Course c1 = new Course();
 			c1.setName("Spring");
-			c1.setCategory("Back-end");
+			c1.setCategory(Category.BACK_END);
 			courseRepository.save(c1);
 		};
 	}

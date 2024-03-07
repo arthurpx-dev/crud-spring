@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.arthur.dto.CourseDTO;
-import com.arthur.model.Course;
-
 import com.arthur.service.CourseService;
 
 import jakarta.validation.Valid;
@@ -48,15 +46,15 @@ public class CourseController {
     }
 
     @GetMapping("/{id}")
-    public Course findById(@PathVariable @NotNull @Positive @NonNull Long id) { // Long é objeto
+    public CourseDTO findById(@PathVariable @NotNull @Positive Long id) { // Long é objeto
         return courseService.findById(id);
 
     }
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Course create(@RequestBody @Valid @NonNull Course course) { // verifica se as informações do front são
-                                                                       // válidas
+    public CourseDTO create(@RequestBody @Valid @NotNull CourseDTO course) { // verifica se as informações do front são
+        // válidas
 
         return courseService.create(course); // Salvando informações através do
         // repositório
@@ -66,7 +64,8 @@ public class CourseController {
     }
 
     @PutMapping("/{id}")
-    public Course update(@PathVariable @NotNull @Positive @NonNull Long id, @RequestBody @Valid Course course) {
+    public CourseDTO update(@PathVariable @NotNull @Positive Long id,
+            @RequestBody @Valid @NotNull CourseDTO course) {
         return courseService.update(id, course);
 
     }
