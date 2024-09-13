@@ -1,15 +1,6 @@
-version: '3.8'
-
+version: '3'
 services:
-  backend:
-    image: crud-spring
-    build:
-      context: .
+  spring-boot:
+    image: saschabrockel/crud-spring:latest
     ports:
       - "8080:8080"
-    networks:
-      - mynetwork
-
-networks:
-  mynetwork:
-    external: true
